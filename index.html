@@ -8,7 +8,16 @@
 <body>
     <h1>Hello, World!</h1>
     <script>
-       
+       // JavaScript code to create a new list element
+       var newListElement = document.createElement("li");
+       newListElement.textContent = "New List Item";
+
+       // Adding the new list element to an existing list
+       var existingList = document.createElement("ul");
+       existingList.appendChild(newListElement);
+
+       // Appending the list to the body
+       document.body.appendChild(existingList);
     </script>
     
 </body>
