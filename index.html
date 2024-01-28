@@ -39,26 +39,36 @@
 
     addToList("timeline", ["1","2","3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27","28", "29", "30", "31", "32", "33", "34", "35", "36"]);
 
-    const liItems = Array.from(timeline.getElementsByTagName("li"));
+    const liItems = Array.from(document.getElementById("timeline").getElementsByTagName("li"));
 
-    function updateFocus() {
-      const middleOfViewport = window.innerHeight / 2 + window.scrollY;
+    function updateFocus(event) {
+      let posY;
+
+      if (event.touches) {
+        // For touch events
+        posY = event.touches[0].clientY + window.scrollY;
+      } else {
+        // For mouse events and other cases
+        posY = event.clientY + window.scrollY;
+      }
+
+      const middleOfViewport = posY;
 
       liItems.forEach((li, index) => {
         const liOffsetTop = li.offsetTop;
         const liMiddle = liOffsetTop + li.clientHeight / 2;
 
         const distanceToMiddle = Math.abs(liMiddle - middleOfViewport);
-        const scale = 1 + (1 - distanceToMiddle / (window.innerHeight / 2));
+        const fontSize = 16 + (1 - distanceToMiddle / (window.innerHeight / 2)) * 8; // Adjust the base font size and scaling factor
 
-        li.style.transform = `scale(${scale})`;
+        li.style.fontSize = `${fontSize}px`;
       });
     }
 
-    // Listen for both scroll and touchmove events
-    window.addEventListener("scroll", updateFocus);
-    window.addEventListener("touchmove", updateFocus);
-
+    // Listen for scroll, touchmove, and mousemove events
+    window.addEventListener("scroll", (event) => updateFocus(event));
+    window.addEventListener("touchmove", (event) => updateFocus(event));
+    window.addEventListener("mousemove", (event) => updateFocus(event));
     
   </script>
     
