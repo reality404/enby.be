@@ -42,22 +42,23 @@
     const liItems = Array.from(timeline.getElementsByTagName("li"));
 
     function updateFocus() {
-      const scrollPosition = window.scrollY;
+      const middleOfViewport = window.innerHeight / 2 + window.scrollY;
 
       liItems.forEach((li, index) => {
         const liOffsetTop = li.offsetTop;
+        const liMiddle = liOffsetTop + li.clientHeight / 2;
 
-        if (scrollPosition >= liOffsetTop && scrollPosition < liOffsetTop + li.clientHeight) {
-          li.classList.add("focus");
-        } else {
-          li.classList.remove("focus");
-        }
+        const distanceToMiddle = Math.abs(liMiddle - middleOfViewport);
+        const scale = 1 + (1 - distanceToMiddle / (window.innerHeight / 2));
+
+        li.style.transform = `scale(${scale})`;
       });
     }
 
     // Listen for both scroll and touchmove events
     window.addEventListener("scroll", updateFocus);
     window.addEventListener("touchmove", updateFocus);
+
     
   </script>
     
