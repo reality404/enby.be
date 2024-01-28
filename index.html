@@ -9,18 +9,20 @@
   <h1>Hello, World!</h1>
   <script>
     
-    const addToList = (list,item) => {
+    const addToList = (list,items) => {
       const ul = document.getElementById(list);
-      const li = document.createElement('li');
-      li.innerText = item;
-      ul.appendChild(li); 
+      for (let i = 0; i < items.length; i++) {
+        const li = document.createElement('li');
+        li.innerText = items[i];
+        ul.appendChild(li); 
+      }
     }
       
     const timeline = document.createElement("ul");
     timeline.id = "timeline";
     document.body.appendChild(timeline);
 
-    addToList("timeline", "Hello, World!");
+    addToList("timeline", ["1","2","3"]);
   </script>
     
 </body>
