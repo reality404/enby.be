@@ -5,6 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Enby</title>
   <style>
+
+    body {
+      marign: 0;
+      padding: 0;
+      overflow: hidden;
+    }
     #timeline ul {
       list-style-type: none;
       padding: 0;
@@ -41,6 +47,9 @@
 
     const liItems = Array.from(document.getElementById("timeline").getElementsByTagName("li"));
 
+    const firstItem = liItems[0];
+    const lastItem = liItems[liItems.length - 1];
+
     function updateFocus(event) {
       let posY;
 
@@ -64,8 +73,7 @@
         li.style.fontSize = `${fontSize}px`;
       });
     }
-
-    // Listen for scroll, touchmove, and mousemove events
+    
     window.addEventListener("scroll", (event) => updateFocus(event));
     window.addEventListener("touchmove", (event) => updateFocus(event));
     window.addEventListener("mousemove", (event) => updateFocus(event));
