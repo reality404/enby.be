@@ -9,6 +9,7 @@
       margin: 0;
       padding: 0;
       overflow: hidden;
+<<<<<<< HEAD
       font-family: Arial, sans-serif;
     }
 
@@ -29,6 +30,28 @@
     }
 
 
+=======
+      display: grid;
+      grid-template:
+    "header header header" 100px
+    ".. main  .." 1fr
+    "footer footer footer" 100px / 1fr 1fr 1fr";
+    }
+
+    header {
+      grid-area: header;
+      background-color: purple;
+    }
+    main {
+      grid-area: main;
+      background-color: blue;
+    }
+    footer {
+      grid-area: footer;
+      background-color: green;
+    }
+    
+>>>>>>> 058bd6b644a0e442f528f5d9d0e1330cdd668f14
     #timeline ul {
       list-style-type: none;
       padding: 0;
@@ -63,10 +86,29 @@
   </style>
 </head>
 <body>
+<<<<<<< HEAD
   <h1>Hello, World!</h1>
 
   <script>
     const addToList = (list, items) => {
+=======
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  <header
+  <main></main>
+  <footer></footer>
+  <script>
+
+    /*
+    const addToList = (list,items) => {
+>>>>>>> 058bd6b644a0e442f528f5d9d0e1330cdd668f14
       const ul = document.getElementById(list);
       for (let i = 0; i < items.length; i++) {
         const li = document.createElement('li');
@@ -87,8 +129,17 @@
     const generateNumberArray = (start, end) => {
       return Array.from({ length: end - start + 1 }, (_, index) => start + index);
     }
+<<<<<<< HEAD
 
     addToList("timeline", generateNumberArray(1, 100));
+=======
+    
+    window.addEventListener("scroll", (event) => updateFocus(event));
+    window.addEventListener("touchmove", (event) => updateFocus(event));
+    window.addEventListener("mousemove", (event) => updateFocus(event));
+    */
+    
+>>>>>>> 058bd6b644a0e442f528f5d9d0e1330cdd668f14
   </script>
 </body>
 </html>
