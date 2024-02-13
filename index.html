@@ -10,7 +10,26 @@
       marign: 0;
       padding: 0;
       overflow: hidden;
+      display: grid;
+      grid-template:
+    "header header header" 100px
+    ".. main  .." 1fr
+    "footer footer footer" 100px / 1fr 1fr 1fr";
     }
+
+    header {
+      grid-area: header;
+      background-color: purple;
+    }
+    main {
+      grid-area: main;
+      background-color: blue;
+    }
+    footer {
+      grid-area: footer;
+      background-color: green;
+    }
+    
     #timeline ul {
       list-style-type: none;
       padding: 0;
@@ -27,9 +46,21 @@
   </style>
 </head>
 <body>
-  <h1>Hello, World!</h1>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  <header
+  <main></main>
+  <footer></footer>
   <script>
-    
+
+    /*
     const addToList = (list,items) => {
       const ul = document.getElementById(list);
       for (let i = 0; i < items.length; i++) {
@@ -77,6 +108,7 @@
     window.addEventListener("scroll", (event) => updateFocus(event));
     window.addEventListener("touchmove", (event) => updateFocus(event));
     window.addEventListener("mousemove", (event) => updateFocus(event));
+    */
     
   </script>
     
