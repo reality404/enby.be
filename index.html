@@ -5,80 +5,90 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Enby</title>
   <style>
-
     body {
-      marign: 0;
+      margin: 0;
       padding: 0;
       overflow: hidden;
+      font-family: Arial, sans-serif;
     }
+
+    h1 {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    #timelineContainer {
+      height: 400px; /* Set a fixed height for the timeline container */
+      background-color: purple;
+    }
+
+    #timeline {
+      height: 400px; /* Set a fixed height for the timeline container */
+      overflow-y: auto;
+
+    }
+
+
     #timeline ul {
       list-style-type: none;
       padding: 0;
+      margin: 0;
+      display: flex;
+      position: relative;
+      width: max-content;
     }
 
     #timeline li {
-      transition: transform 0.3s;
+      margin: 0 10px;
+      padding: 10px;
+      background-color: #f0f0f0;
+      border-radius: 5px;
     }
 
-    .focus {
-      transform: scale(1.5); /* Adjust the scale factor as needed */
-      z-index: 1;
+    #timeline li:first-child {
+      background-color: rgba(0, 0, 255, 0.5);
+      top: 0;
+      position: sticky;
+      z-index: 2;
     }
+
+    #timeline li:last-child {
+      bottom: 0;
+      background-color: rgba(0, 0, 255, 0.5);
+      position: sticky;
+      margin-top: auto; 
+      z-index: 2;
+    }
+
   </style>
 </head>
 <body>
   <h1>Hello, World!</h1>
+
   <script>
-    
-    const addToList = (list,items) => {
+    const addToList = (list, items) => {
       const ul = document.getElementById(list);
       for (let i = 0; i < items.length; i++) {
         const li = document.createElement('li');
         li.innerText = items[i];
-        ul.appendChild(li); 
+        ul.appendChild(li);
       }
     }
-      
+
+    // Create the timeline container dynamically with JavaScript
+    const timelineContainer = document.createElement("div");
+    timelineContainer.id = "timelineContainer";
+    document.body.appendChild(timelineContainer);
+
     const timeline = document.createElement("ul");
     timeline.id = "timeline";
-    document.body.appendChild(timeline);
+    timelineContainer.appendChild(timeline);
 
-    addToList("timeline", ["1","2","3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27","28", "29", "30", "31", "32", "33", "34", "35", "36"]);
-
-    const liItems = Array.from(document.getElementById("timeline").getElementsByTagName("li"));
-
-    const firstItem = liItems[0];
-    const lastItem = liItems[liItems.length - 1];
-
-    function updateFocus(event) {
-      let posY;
-
-      if (event.touches) {
-        // For touch events
-        posY = event.touches[0].clientY + window.scrollY;
-      } else {
-        // For mouse events and other cases
-        posY = event.clientY + window.scrollY;
-      }
-
-      const middleOfViewport = posY;
-
-      liItems.forEach((li, index) => {
-        const liOffsetTop = li.offsetTop;
-        const liMiddle = liOffsetTop + li.clientHeight / 2;
-
-        const distanceToMiddle = Math.abs(liMiddle - middleOfViewport);
-        const fontSize = 16 + (1 - distanceToMiddle / (window.innerHeight / 2)) * 8; // Adjust the base font size and scaling factor
-
-        li.style.fontSize = `${fontSize}px`;
-      });
+    const generateNumberArray = (start, end) => {
+      return Array.from({ length: end - start + 1 }, (_, index) => start + index);
     }
-    
-    window.addEventListener("scroll", (event) => updateFocus(event));
-    window.addEventListener("touchmove", (event) => updateFocus(event));
-    window.addEventListener("mousemove", (event) => updateFocus(event));
-    
+
+    addToList("timeline", generateNumberArray(1, 100));
   </script>
-    
 </body>
 </html>
