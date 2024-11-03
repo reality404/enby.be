@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>90s Style Background</title>
+    <style>
+        /* Basic reset for margin and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #9b6ce4; /* Purple background */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Background container with 90s style pattern */
+        .background {
+            width: 100vw;
+            height: 100vh;
+            background-color: #9b6ce4;
+            background-image: 
+                radial-gradient(circle, black 1px, transparent 1px), /* Dots */
+                url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"%3E%3Cpath fill="%239bf542" d="M0 10c2 0 2 4 4 4s2-4 4-4 2 4 4 4 2-4 4-4 2 4 4 4v2h-24v-2z"/%3E%3C/svg%3E'), /* Green squiggle */
+                url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"%3E%3Cpath fill="%23ff87d4" d="M12 2l10 18h-20z"/%3E%3C/svg%3E'), /* Pink triangle */
+                url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"%3E%3Ccircle fill="%2372cdfd" cx="12" cy="12" r="10"/%3E%3C/svg%3E'); /* Blue circle */
+            background-size: 20px 20px, 60px, 60px, 60px; /* Adjust sizes */
+            background-position: 
+                0 0, /* Dots in grid */
+                20% 30%, /* Random positions */
+                70% 40%, 
+                50% 80%;
+            background-repeat: 
+                repeat, /* Dots repeat */
+                no-repeat, no-repeat, no-repeat; /* Shapes don’t repeat */
+        }
+
+        /* Centered text to demonstrate the background effect */
+        h1 {
+            color: #fff;
+            font-size: 3rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="background">
+      <!-- <h1>90s Style Background</h1> -->
+    </div>
+</body>
+</html>
+

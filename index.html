@@ -3,143 +3,65 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Enby</title>
+  <title>Enby by NiSlp </title>
   <style>
     body {
+      height: 100vh;
+      width: 100%;
       margin: 0;
       padding: 0;
-      overflow: hidden;
-<<<<<<< HEAD
-      font-family: Arial, sans-serif;
     }
-
-    h1 {
-      text-align: center;
-      margin-top: 20px;
-    }
-
-    #timelineContainer {
-      height: 400px; /* Set a fixed height for the timeline container */
-      background-color: purple;
-    }
-
-    #timeline {
-      height: 400px; /* Set a fixed height for the timeline container */
-      overflow-y: auto;
-
-    }
-
-
-=======
-      display: grid;
-      grid-template:
-    "header header header" 100px
-    ".. main  .." 1fr
-    "footer footer footer" 100px / 1fr 1fr 1fr";
-    }
-
-    header {
-      grid-area: header;
-      background-color: purple;
-    }
-    main {
-      grid-area: main;
-      background-color: blue;
-    }
-    footer {
-      grid-area: footer;
-      background-color: green;
-    }
-    
->>>>>>> 058bd6b644a0e442f528f5d9d0e1330cdd668f14
-    #timeline ul {
-      list-style-type: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      position: relative;
-      width: max-content;
-    }
-
-    #timeline li {
-      margin: 0 10px;
-      padding: 10px;
-      background-color: #f0f0f0;
-      border-radius: 5px;
-    }
-
-    #timeline li:first-child {
-      background-color: rgba(0, 0, 255, 0.5);
-      top: 0;
-      position: sticky;
-      z-index: 2;
-    }
-
-    #timeline li:last-child {
-      bottom: 0;
-      background-color: rgba(0, 0, 255, 0.5);
-      position: sticky;
-      margin-top: auto; 
-      z-index: 2;
-    }
-
   </style>
 </head>
 <body>
-<<<<<<< HEAD
-  <h1>Hello, World!</h1>
 
-  <script>
-    const addToList = (list, items) => {
-=======
-  <header>
-    <nav>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Services</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-    </nav>
-  <header
-  <main></main>
-  <footer></footer>
+  <h2>Not in Slipstream</h2>
+  <h1> Enby </h1>
+
+  <label id="fullscreen-label" for="fullscreen">
+    <input type="checkbox" id="fullscreen-checkbox" name="fullscreen">
+    Fullscreen
+  </label>
+  <br>
+  <button type="Button" onclick="demo()" id="demo-start">Start Demo</button> 
+  
   <script>
 
-    /*
-    const addToList = (list,items) => {
->>>>>>> 058bd6b644a0e442f528f5d9d0e1330cdd668f14
-      const ul = document.getElementById(list);
-      for (let i = 0; i < items.length; i++) {
-        const li = document.createElement('li');
-        li.innerText = items[i];
-        ul.appendChild(li);
+    document.getElementById('fullscreen-label').addEventListener('click', (event) => {
+      event.preventDefault(); //stop deafault events inside the label.
+      const checkbox = document.getElementById('fullscreen-checkbox'); 
+      checkbox.checked = !checkbox.checked; 
+      console.log("test fullscreen label clicked?"); 
+    });
+
+
+    const demo = () => {
+      console.log("demo");
+      const checkbox = document.getElementById('fullscreen-checkbox'); 
+      if (checkbox.checked) {
+        document.documentElement.requestFullscreen();
+        console.log("fullscreen");
+      } else {
+        console.log("not fullscreen");
       }
+      document.body.innerHTML = '';
     }
 
-    // Create the timeline container dynamically with JavaScript
-    const timelineContainer = document.createElement("div");
-    timelineContainer.id = "timelineContainer";
-    document.body.appendChild(timelineContainer);
-
-    const timeline = document.createElement("ul");
-    timeline.id = "timeline";
-    timelineContainer.appendChild(timeline);
-
-    const generateNumberArray = (start, end) => {
-      return Array.from({ length: end - start + 1 }, (_, index) => start + index);
-    }
-<<<<<<< HEAD
-
-    addToList("timeline", generateNumberArray(1, 100));
-=======
+    //🐁 Quick hack to test. Replace this with my emoji framework latter.
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+    const emoji = '🐁';
+    canvas.width = 64;
+    canvas.height = 64;
+    ctx.font = '50px Arial'; // Adjust font size as needed
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(emoji, canvas.width / 2, canvas.height / 2);
+    const cursorURL = canvas.toDataURL('image/png');
+    document.body.style.cursor = `url('${cursorURL}'), auto`;
     
-    window.addEventListener("scroll", (event) => updateFocus(event));
-    window.addEventListener("touchmove", (event) => updateFocus(event));
-    window.addEventListener("mousemove", (event) => updateFocus(event));
-    */
-    
->>>>>>> 058bd6b644a0e442f528f5d9d0e1330cdd668f14
+
+
   </script>
 </body>
 </html>
