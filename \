@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- other meta tags -->
+  <meta name="darkreader-lock"> <!-- https://github.com/darkreader/darkreader/blob/main/CONTRIBUTING.md#disabling-dark-reader-on-your-site -->
+
+  <title>Basic Template</title>
+  <style>
+
+    body {
+      margin: 0;
+      height: 100vh; /* Full viewport height */
+      background-color: #998cf9;
+      background: 
+        radial-gradient(circle closest-side, #000 99%, transparent 100%), /* Circle shape */
+        radial-gradient(circle closest-side, #000 99%, transparent 100%), /* Circle shape */
+        radial-gradient(circle closest-side, #000 99%, transparent 100%), /* Circle shape */
+        radial-gradient(circle closest-side, #000 99%, transparent 100%); /* Circle shape */
+      background-position: 
+        0px 0px, 
+        000px 200px, 
+        100px 300px, 
+        300px 300px; 
+      background-repeat: no-repeat;
+      background-size: 100px 100px; /* Size of each circle */
+    }
+
+
+  </style>
+</head>
+<body>
+
+
+
+  <script>
+  </script>
+    
+</body>
+</html>
+

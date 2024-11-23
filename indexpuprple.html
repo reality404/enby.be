@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- other meta tags -->
+  <meta name="darkreader-lock"> <!-- https://github.com/darkreader/darkreader/blob/main/CONTRIBUTING.md#disabling-dark-reader-on-your-site -->
+
+  <title>Basic Template</title>
+  <style>
+
+    :root {
+      --circle-size:100px; /* Circle diameter */
+      --circle-gap: 50px;
+      --circle-colour: #000000;
+
+      --triangle-colour: #ffade2;
+      --triangle-line-thickness: 10px;
+      --triangle-line-angle: 45deg;
+    }
+
+    body {
+      margin: 0;
+      height: 100vh; 
+      background: 
+        radial-gradient(circle at top left, var(--circle-colour) calc(var(--circle-size) / 2 - 0.5px), transparent calc(var(--circle-size) / 2 + 0.5px)),
+        radial-gradient(circle at top right, var(--circle-colour) calc(var(--circle-size) / 2 - 0.5px), transparent calc(var(--circle-size) / 2 + 0.5px)),
+        radial-gradient(circle, var(--circle-colour) calc(var(--circle-size) / 2 - 0.5px), transparent calc(var(--circle-size) / 2 + 0.5px)),
+        radial-gradient(circle at bottom left, var(--circle-colour) calc(var(--circle-size) / 2 - 0.5px), transparent calc(var(--circle-size) / 2 + 0.5px)),
+        radial-gradient(circle at bottom right, var(--circle-colour) calc(var(--circle-size) / 2 - 0.5px), transparent calc(var(--circle-size) / 2 + 0.5px));
+        background-size: calc(var(--circle-size) * sqrt(2) + var(--circle-gap)) calc(var(--circle-size) * sqrt(2) + var(--circle-gap));
+      opacity: 1; /* Might make the cricles look smoother */
+      background-color: #998cf9;
+    }
+
+
+    .triangle {
+      --x: 100px; /* Horizontal position of the triangle */
+      --y: 100px; /* Vertical position of the triangle */
+      --b: 15px;  /* Border thickness, controls the inner cut of the triangle */
+      --angle: 22.5deg;
+
+      position: absolute; /* Position the triangle absolutely within the nearest positioned ancestor */
+  
+      /* Positioning the triangle using the custom properties */
+      left: var(--x); /* Horizontal positio */
+      top: var(--y);  /* Vertical position */
+
+      width: 200px; /* Set the overall width of the triangle */
+      aspect-ratio: 1; /* Maintain a 1:1 aspect ratio, ensuring the height is equal to width */
+
+      /* Use clip-path to create a custom polygon shape (triangle) */
+      clip-path: 
+        polygon(
+        /* Outer triangle points (forming the shape's outer border) */
+        0 100%,             /* Bottom-left corner */
+        0 0,                /* Top-left corner */
+        100% 100%,          /* Bottom-right corner */
+        0 100%,             /* Bottom-left corner repeated (to close the shape) */
+
+        /* Inner cut-out points to form the triangle */
+        var(--b) calc(100% - var(--b)), /* Left side, with offset controlled by --b */
+        calc(100% - var(--b)/tan(var(--angle))) calc(100% - var(--b)), /* Right side, controlled by --b and angle */
+        var(--b) calc(var(--b)/tan(var(--angle))), /* Left side bottom cut, controlled by --b */
+        var(--b) calc(100% - var(--b)) /* Bottom-left, with thickness adjustment */
+      );
+
+      /* Apply a linear gradient background to fill the triangle */
+      background: linear-gradient(90deg, yellow, lightyellow);
+    }
+
+
+  </style>
+</head>
+<body>
+
+  <div class="triangle">
+  </div>
+
+
+
+  <script>
+  </script>
+
+</body>
+</html>
+
