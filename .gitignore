@@ -1,0 +1,5 @@
+# Ignore the public directory (build output)
+public/
+
+# Node.js dependencies
+node_modules/
