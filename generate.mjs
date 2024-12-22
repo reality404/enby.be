@@ -1,6 +1,22 @@
-const fs = require('fs');
-const path = require('path');
-const { marked } = require('marked');
+import fs from 'fs';
+import path from 'path';
+import { marked } from 'marked';
+import { markedEmoji } from 'marked-emoji';
+
+import {Octokit} from "@octokit/rest";
+
+const octokit = new Octokit();
+
+const res = await octokit.rest.emojis.get();
+
+const emojis = res.data;
+
+const options = {
+	emojis,
+	renderer: (token) => `<img alt="${token.name}" src="${token.emoji}" class="marked-emoji-img">`
+};
+
+marked.use(markedEmoji(options));
 
 // Paths
 const inputDir = './src';   // Source directory containing Markdown files
