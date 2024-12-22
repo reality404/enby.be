@@ -13,7 +13,7 @@ const emojis = res.data;
 
 const options = {
 	emojis,
-	renderer: (token) => `<img alt="${token.name}" src="${token.emoji}" class="marked-emoji-img">`
+	renderer: (token) => token.emoji,
 };
 
 marked.use(markedEmoji(options));
