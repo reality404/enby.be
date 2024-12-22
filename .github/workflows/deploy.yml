@@ -29,4 +29,5 @@ jobs:
         with:
           personal_token: ${{ secrets.ENBY_BE_TOKEN }}
           publish_dir: ./public
+          cname: enby.be
 
